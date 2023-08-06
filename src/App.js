@@ -10,7 +10,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import MediaCard from './Cards'
+import URLShortener from "./URLShortener";
 import  { useState, useEffect } from "react";
+import Home from './Home'
 
 const ThemePaletteModeContext = React.createContext({
   toggleThemePaletteMode: () => {}
@@ -85,7 +87,7 @@ export default function App() {
     []
   );
   
-  const props_arr = {url:"https://public-apps-thetechcruise.s3.us-east-2.amazonaws.com/public/document.jpeg",title:"URL Shortener",description:"Oh my such good apples pie"}
+  const props_arr = [{url:"https://public-apps-thetechcruise.s3.us-east-2.amazonaws.com/public/document.jpeg",title:"URL Shortener",description:"Oh my such good apples pie"}]
   const themeProvider = React.useMemo(
     () =>
       createTheme({
@@ -113,7 +115,7 @@ export default function App() {
         </Toolbar>
       </AppBar>
         <ToggleThemePaletteMode />
-        {page === "home" && <MediaCard props = {props_arr}></MediaCard>}
+        {page === "home" && <Home props_arr ={props_arr} ></Home>}
         {page === "urlshortener" && <URLShortener />}
 
         Hello World
