@@ -48,7 +48,7 @@ const ToggleThemePaletteMode = () => {
         display: "flex",
         width: "100%",
         alignItems: "center",
-        justifyContent: "left",
+        justifyContent: "center",
         bgcolor: "background.default",
         color: "text.primary"
       }}
@@ -87,7 +87,7 @@ export default function App() {
     []
   );
   
-  const props_arr = [{url:"https://public-apps-thetechcruise.s3.us-east-2.amazonaws.com/public/document.jpeg",title:"URL Shortener",description:"Oh my such good apples pie"}]
+  const props_arr = [{url:"https://public-apps-thetechcruise.s3.us-east-2.amazonaws.com/public/document.jpeg",title:"URL Shortener",id:"urlshortener",description:"Oh my such good apples pie"}]
   const themeProvider = React.useMemo(
     () =>
       createTheme({
@@ -114,11 +114,10 @@ export default function App() {
           </Typography>
         </Toolbar>
       </AppBar>
+        {page === "home" && <Home props_arr ={props_arr} setPage={setPage} ></Home>}
+        {page === "urlshortener" && <URLShortener setPage={setPage} title={props_arr[0].title}/>}
         <ToggleThemePaletteMode />
-        {page === "home" && <Home props_arr ={props_arr} ></Home>}
-        {page === "urlshortener" && <URLShortener />}
 
-        Hello World
       </ThemeProvider>
     </ThemePaletteModeContext.Provider>
   );

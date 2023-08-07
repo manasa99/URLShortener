@@ -48,7 +48,7 @@ def main(event, context):
     if event["operation"] == "set":
         original_url, ex = event["original_url"], event["ex"]
         short_url = set_url(redis_client=redis_client, original_url=original_url, ex=ex)
-        return short_url
+        return [short_url]
     elif event["operation"] == "get":
         short_url = event["short_url"]
         original_url, expiry = get_url(redis_client=redis_client, short_url=short_url)

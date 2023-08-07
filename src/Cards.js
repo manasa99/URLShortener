@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function MediaCard(props) {
+  console.log("*****",props)
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -23,7 +24,7 @@ export default function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Open</Button>
+        <Button size="small" onClick={()=>props.setPage(props.props.id)}>Open</Button>
       </CardActions>
     </Card>
   );
